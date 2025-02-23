@@ -2,6 +2,7 @@
 
 use App\Models\District;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
 use PhpParser\Node\Scalar\MagicConst\Dir;
 use App\Http\Controllers\Api\V1\Dashboard\AdController;
 use App\Http\Controllers\Api\V1\Dashboard\CityController;
@@ -9,6 +10,10 @@ use App\Http\Controllers\Api\V1\Dashboard\MessageController;
 use App\Http\Controllers\Api\V1\Dashboard\SettingController;
 use App\Http\Controllers\Api\V1\Dashboard\CategoryController;
 use App\Http\Controllers\Api\V1\Dashboard\DistrictController;
+
+Route::get('/user', function (Request $request) {
+    return request()->user();
+})->middleware('auth:sanctum');
 
 Route::prefix('dashboard')->name('dashboard.')->group(function () {
 
